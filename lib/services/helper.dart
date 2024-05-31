@@ -24,14 +24,12 @@ class Helper {
     return femaleList;
   }
 
-// Kids
+//kids
   Future<List<Sneakers>> getKidsSneakers() async {
     final data =
         await the_bundle.rootBundle.loadString("assets/json/kids_shoes.json");
-
-    final kidsList = sneakersFromJson(data);
-
-    return kidsList;
+    final KidsList = sneakersFromJson(data);
+    return KidsList;
   }
 
   // Single Male

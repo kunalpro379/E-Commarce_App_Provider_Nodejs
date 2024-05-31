@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping/presentation/dashboard_container/dashboard_container.dart';
+import 'package:shopping/presentation/dashboard_page/dash_board.page.dart';
 
 import 'controllers/mainscreen_provider.dart';
 import 'controllers/product_provider.dart';
-import 'views/ui/mainscreen.dart';
+import 'presentation/shared/CustomBottomBar/custom_bottombar.provider.dart';
+import 'presentation/ui/mainscreen.dart';
 
 // entrypoint of the app
 void main() async {
@@ -19,6 +22,7 @@ void main() async {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => MainScreenNotifier()),
     ChangeNotifierProvider(create: (context) => ProductNotifier()),
+    ChangeNotifierProvider(create: (context) => BottomNavigationBarProvider()),
   ], child: const MyApp()));
 }
 
@@ -42,7 +46,7 @@ class MyApp extends StatelessWidget {
             ),
 
             // sets the homescreen of the app
-            home: MainScreen(),
+            home: DashboardContainer(),
           );
         });
   }
